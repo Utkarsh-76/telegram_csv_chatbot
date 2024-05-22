@@ -1,0 +1,9 @@
+requests==2.31.0
+pandas==1.5.3
+python_telegram_bot==21.1.1
+flask==2.2.5
+openai==1.21.2
+psycopg2==2.9.9
+psycopg2-binary==2.9.9
+streamlit==1.30.0
+gunicorn==21.2.0
