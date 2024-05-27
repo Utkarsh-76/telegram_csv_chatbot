@@ -61,10 +61,10 @@ def query_csv(user_prompt):
 
     conn.close()
 
-    if df.shape == (1, 1):
-        return df.iloc[0][0]
-    else:
-        return df
+    # if df.shape == (1, 1):
+    #     return df.iloc[0][0]
+    # else:
+    return df
 
 
 # question = """Give me the list of ACs of Voltas?"""

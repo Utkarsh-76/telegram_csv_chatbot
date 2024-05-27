@@ -25,14 +25,19 @@ def upload_data_to_db(uploaded_file):
 
     csvreader = csv.reader(uploaded_file.text.split('\n'), delimiter=',')
 
-    next(csvreader)
+    uploaded_cols = next(csvreader)
+    cols_present = [0 if col == '' else 1 for col in uploaded_cols]
     for row in csvreader:
         print(i)
-        c.execute(
-            f"INSERT INTO {table_name} {column_str} VALUES {col_str_var}",
-            row
-        )
-        i = i + 1
+        if len(row) != 0:
+
+            row = [row[i] for i in range(len(cols_present)) if cols_present[i] == 1]
+
+            c.execute(
+                f"INSERT INTO {table_name} {column_str} VALUES {col_str_var}",
+                row
+            )
+            i = i + 1
 
     conn.commit()
     conn.close()

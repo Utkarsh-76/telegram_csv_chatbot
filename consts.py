@@ -10,6 +10,7 @@ client = AzureOpenAI(
         api_version="2023-05-15"
     )
 
-input_file_path = 'data/Air Conditioners.csv'
+input_file_path = 'data/input_data.csv'
+output_csv_path = 'data/output_data.csv'
 
 table_name = "products"

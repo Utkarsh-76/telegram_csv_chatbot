@@ -5,6 +5,8 @@ from credentials import bot_token
 from process_request import get_file
 from data_to_db import upload_data_to_db
 from chatbot import query_csv
+from util import save_csv
+from consts import output_csv_path
 
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -23,6 +25,7 @@ async def handle_document(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
     print(document.mime_type)
     if document.mime_type == 'text/comma-separated-values':
         file_ = get_file(update.message)
+        save_csv(file_)
         upload_data_to_db(file_)
         await context.bot.send_message(chat_id=update.effective_chat.id,
                                        text="CSV is uploaded. Start asking questions")
@@ -35,7 +38,7 @@ async def handle_question(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
     query = update.message.text
     response = query_csv(query)  # Assuming this function takes the query and returns a string response
 
-    file_path = 'output.csv'
+    file_path = output_csv_path
     response.to_csv(file_path, index=False)
     await context.bot.send_document(chat_id=update.effective_chat.id, document=open(file_path, 'rb'))
     # await context.bot.send_message(chat_id=update.effective_chat.id, text=text_response)

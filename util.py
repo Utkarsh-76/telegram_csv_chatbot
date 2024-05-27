@@ -1,5 +1,7 @@
 from consts import client
 import psycopg2
+import csv
+from consts import input_file_path
 
 
 def call_openai(prompt, table_schema, top_entries, temperature=0):
@@ -49,3 +51,12 @@ def connect_db():
     c = conn.cursor()
 
     return conn, c
+
+
+def save_csv(file_):
+
+    rows = file_.text.split('\n')
+    with open(input_file_path, 'w', newline='') as file:
+        writer = csv.writer(file)
+        for row in rows:
+            writer.writerow(row.split(','))
