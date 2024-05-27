@@ -28,9 +28,9 @@ def query_csv(user_prompt):
         print(query_error)
         second_query = call_openai(
             f"getting the following error while running the query: {first_query}"
-            f"<error>:"
-            f"{query_error}"
-            f"Give only the correct query as the output""", table_schema, '\n'.join(data_list[:5]))
+            f"<<<error>>>:"
+            f"{query_error}\n\n"
+            f"Take you time and think about it step by step. Give only the correct query as the output""", table_schema, '\n'.join(data_list[:5]))
         print(second_query)
 
         try:
@@ -40,9 +40,9 @@ def query_csv(user_prompt):
             print(query_error)
             third_query = call_openai(
                 f"getting the following error while running the query: {second_query}"
-                f"<error>:"
-                f"{query_error}"
-                f"Give only the correct query as the output""", table_schema, '\n'.join(data_list[:5]))
+                f"<<<error>>>:"
+                f"{query_error}\n\n"
+                f"Take you time and think about it step by step. Give only the correct query as the output""", table_schema, '\n'.join(data_list[:5]))
             print(third_query)
 
             try:
@@ -52,9 +52,9 @@ def query_csv(user_prompt):
                 print(query_error)
                 fourth_query = call_openai(
                     f"getting the following error while running the query: {third_query}"
-                    f"<error>:"
-                    f"{query_error}"
-                    f"Give only the correct query as the output""", table_schema, '\n'.join(data_list[:5]))
+                    f"<<<error>>>:"
+                    f"{query_error}\n\n"
+                    f"Take you time and think about it step by step. Give only the correct query as the output""", table_schema, '\n'.join(data_list[:5]))
                 print(fourth_query)
 
                 df = pd.read_sql_query(fourth_query, conn)

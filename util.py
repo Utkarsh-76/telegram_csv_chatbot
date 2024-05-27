@@ -13,7 +13,7 @@ def call_openai(prompt, table_schema, top_entries, temperature=0):
     INITIAL_PROMPT = f"""
     {cols}
 
-    I'll start prompting you and I want you to return postgresql query. Return only SQL query as result
+    I'll start prompting you and I want you to return SQL query.
     """
 
     response = client.chat.completions.create(
