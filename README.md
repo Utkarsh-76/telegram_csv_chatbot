@@ -48,7 +48,7 @@ python3 tel.py
 
 ## Support
 
-If you need any support for this repo or AI in general [schedule a meeting](https://calendly.com/agarwal-ut76/30min) or reach out to me via:
+If you need any support for this repo or AI in general, [schedule a meeting](https://calendly.com/agarwal-ut76/30min) or reach out to me via:
 
 [![Linkedin](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/utkarsh-data-agarwal/)
 
